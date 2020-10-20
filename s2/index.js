@@ -110,10 +110,15 @@ const anagram2 = (str1, str2) => {
   return formatStr(str1) === formatStr(str2)
 }
 
-console.log(anagram1('Dormitory', 'dirty room'))
-console.log(anagram1('elbow', 'below'))
-console.log(anagram1('boatload', 'spinachs'))
+const letter_changes1 = (str) => {
+  let newStr = str.toLowerCase().replace(/[a-z]/gi, (c) => {
+    if (c === 'z' || c === 'Z') {
+      return 'a'
+    }
+    return String.fromCharCode(c.charCodeAt() + 1)
+  })
+  newStr = newStr.replace(/a|e|i|o|u/gi, (c) => c.toUpperCase())
+  return newStr
+}
 
-console.log(anagram2('Dormitory', 'dirty room'))
-console.log(anagram2('elbow', 'below'))
-console.log(anagram2('boatload', 'spinachs'))
+console.log(letter_changes1('hello Therez'))
