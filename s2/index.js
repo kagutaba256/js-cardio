@@ -76,12 +76,7 @@ const flatten_array4 = (arrays) => {
 
 const anagram1 = (s1, s2) => {
   const prep_string = (str) => {
-    return str
-      .trim()
-      .toLowerCase()
-      .match(/[a-z0-9]+/g)
-      .join('')
-      .split('')
+    return str.trim().toLowerCase().replace(/[^\w]/g, '').split('')
   }
   let s1_a = prep_string(s1)
   let s2_a = prep_string(s2)
@@ -105,3 +100,5 @@ const anagram1 = (s1, s2) => {
 }
 
 console.log(anagram1('Dormitory', 'dirty room'))
+console.log(anagram1('elbow', 'below'))
+console.log(anagram1('boatload', 'spinachs'))
