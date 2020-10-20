@@ -82,6 +82,8 @@ const capitalize_letters4 = (str) => {
 
 const max_character1 = (str) => {
   const charMap = {}
+  let maxNum = 0
+  let maxChar = ''
   str.split('').forEach((c) => {
     if (charMap[c]) {
       charMap[c]++
@@ -90,8 +92,34 @@ const max_character1 = (str) => {
     }
   })
   for (let char in charMap) {
-    0
+    if (charMap[char] > maxNum) {
+      maxNum = charMap[char]
+      maxChar = char
+    }
+  }
+  return maxChar
+}
+
+const fizzbuzz1 = (n) => {
+  for (let i = 1; i <= n; i++) {
+    let fb = ''
+    i % 3 === 0 && (fb += 'Fizz')
+    i % 5 === 0 && (fb += 'Buzz')
+    if (fb != '') {
+      console.log(`${i}:\t${fb}`)
+    }
   }
 }
 
-console.log(max_character1('javascript'))
+const fizzbuzz = (n) => {
+  for (let i = 1; i <= n; i++) {
+    let rs = ''
+    i % 3 === 0 && (rs += 'Fizz')
+    i % 5 === 0 && (rs += 'Buzz')
+    if (rs != '') {
+      console.log(`${i}:\t${rs}`)
+    }
+  }
+}
+
+fizzbuzz(100)
